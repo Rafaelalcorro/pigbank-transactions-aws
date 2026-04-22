@@ -1,0 +1,32 @@
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform.lock.hcl
+
+# Binarios Go
+lambdas/post-payment/bootstrap
+lambdas/start-payment/bootstrap
+lambdas/get-payment-status/bootstrap
+
+terraform/terraform.tfstate.*
+
+# ZIPs
+**/*.zip
+
+# Variables de entorno
+.env
+*.env
+
+# AWS credentials
+.aws/
+credentials
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
