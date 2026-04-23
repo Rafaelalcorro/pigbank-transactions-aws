@@ -61,3 +61,22 @@ resource "aws_lambda_function" "get_payment_status" {
 
   depends_on = [aws_iam_role_policy.payment_lambda_policy]
 }
+
+# ── get-user-payments ─────────────────────────────────────
+resource "aws_lambda_function" "get_user_payments" {
+  function_name = "get-user-payments-lambda"
+  role          = aws_iam_role.payment_lambda_role.arn
+  handler       = "bootstrap"
+  runtime       = "provided.al2023"
+  filename      = "${path.module}/../lambdas/get-user-payments/get-user-payments.zip"
+  timeout       = 15
+
+  environment {
+    variables = {
+      PAYMENT_TABLE = var.payment_table
+      REGION        = var.region
+    }
+  }
+
+  depends_on = [aws_iam_role_policy.payment_lambda_policy]
+}

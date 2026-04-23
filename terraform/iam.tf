@@ -40,7 +40,8 @@ resource "aws_iam_role_policy" "payment_lambda_policy" {
         Resource = [
           "arn:aws:dynamodb:us-east-1:${var.account_id}:table/${var.card_table}",
           "arn:aws:dynamodb:us-east-1:${var.account_id}:table/${var.card_table}/index/*",
-          "arn:aws:dynamodb:us-east-1:${var.account_id}:table/${var.payment_table}"
+          "arn:aws:dynamodb:us-east-1:${var.account_id}:table/${var.payment_table}",
+          "arn:aws:dynamodb:us-east-1:${var.account_id}:table/${var.payment_table}/index/*"
         ]
       },
       {
